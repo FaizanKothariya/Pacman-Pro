@@ -24,13 +24,11 @@ class Pacman {
   }
 
   eat() {
-    for( let i = 0; i < map.length; i++){
-      for ( let j = 0; j < map[0].length; j++){
-        if(map[i][j] == 2 &&
-                this.getMapX() == j && this.getMapY() == i
-        ){
+    for (let i = 0; i < map.length; i++) {
+      for (let j = 0; j < map[0].length; j++) {
+        if (map[i][j] == 2 && this.getMapX() == j && this.getMapY() == i) {
           map[i][j] = 3;
-          score ++
+          score++;
         }
       }
     }
@@ -76,7 +74,7 @@ class Pacman {
       map[this.getMapY()][this.getMapX()] == 1 ||
       map[this.getMapYRightSide()][this.getMapX()] == 1 ||
       map[this.getMapY()][this.getMapXRightSide()] == 1 ||
-      map[this.getMapYRightSide()][this.getMapXRightSide()] == 1 
+      map[this.getMapYRightSide()][this.getMapXRightSide()] == 1
     ) {
       return true;
     }
@@ -86,15 +84,15 @@ class Pacman {
   checkGhostCollision() {}
 
   changeDireactionIfPossible() {
-    if(this.direction == this.nextDirection) return
-    
-    let tempDirection = this.direction
-    this.direction = this.nextDirection
-    this.moveForwards()
-    if(this.checkCollision()){
+    if (this.direction == this.nextDirection) return;
+
+    let tempDirection = this.direction;
+    this.direction = this.nextDirection;
+    this.moveForwards();
+    if (this.checkCollision()) {
       this.moveBackwards();
       this.direction = tempDirection;
-    }else {
+    } else {
       this.moveBackwards();
     }
   }
@@ -113,21 +111,21 @@ class Pacman {
     canvasContext.rotate((this.direction * 90 * Math.PI) / 180);
 
     canvasContext.translate(
-        -this.x - oneBlockSize / 2,
-        -this.y - oneBlockSize / 2
+      -this.x - oneBlockSize / 2,
+      -this.y - oneBlockSize / 2
     );
 
     canvasContext.drawImage(
-        pacmanFrames,
-        (this.currentFrame - 1) * oneBlockSize,
-        0, 
-        oneBlockSize,
-        oneBlockSize,
-        this.x,
-        this.y,
-        this.width,
-        this.height
-    )
+      pacmanFrames,
+      (this.currentFrame - 1) * oneBlockSize,
+      0,
+      oneBlockSize,
+      oneBlockSize,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
 
     canvasContext.restore();
   }
