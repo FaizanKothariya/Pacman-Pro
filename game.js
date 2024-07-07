@@ -112,20 +112,20 @@ let gameOver = () => {
 };
 
 let drawGameOver = () => {
-  canvasContext.font = "60px Emulogic";
+  canvasContext.font = "60px Script";
   canvasContext.fillStyle = "white";
   canvasContext.fillText("Game Over!", 150, 200);
 };
 
 let drawWin = () => {
-  canvasContext.font = "50px Emulogic";
+  canvasContext.font = "50px Script";
   canvasContext.fillStyle = "white";
   canvasContext.fillText("WINNER WINNER!", 0, 200);
   canvasContext.fillText("CHICHKEN DINNER!", 0, 240);
 };
 
 let drawLives = () => {
-  canvasContext.font = "20px Emulogic";
+  canvasContext.font = "20px Script";
   canvasContext.fillStyle = "white";
   canvasContext.fillText("Lives: ", 200, oneBlockSize * (map.length + 1) + 10);
   for (let i = 0; i < lives; i++) {
@@ -160,7 +160,7 @@ let drawFoods = () => {
 };
 
 let drawScore = () => {
-  canvasContext.font = "20px Emulogic";
+  canvasContext.font = "20px Script";
   canvasContext.fillStyle = "white";
   canvasContext.fillText(
     "Score: " + score,
